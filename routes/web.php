@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [knockoutController::class, 'test']);
+Route::get('/', [knockoutController::class, 'index']);
 Route::get('index2/', [knockoutController::class, 'index2']);
 Route::get('index3/', [knockoutController::class, 'index3']);
 Route::get('index4/', [knockoutController::class, 'index4']);
