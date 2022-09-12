@@ -1,102 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+    <h2>Pelacakan penghapusan</h2>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <p>Jika pengguna telah menghapus beberapa data pada klien, bagaimana server tahu untuk menghapus catatan database yang sesuai? Salah satu kemungkinannya adalah server harus memeriksa kumpulan data yang masuk, membandingkannya dengan apa yang ada di database, dan menyimpulkan catatan mana yang dihapus. Tapi itu cukup canggung - jauh lebih baik jika klien mengirimkan data yang secara eksplisit menyatakan catatan mana yang dihapus.</p>
 
-</head>
+    <p>Saat memanipulasi observable array, Anda dapat dengan mudah melacak penghapusan dengan menggunakan fungsi <code>destroy</code> untuk menghapus item.
+        Misalnya, perbarui fungsi <code>removeTask</code> anda:</p>
 
-<body>
-    <h2>Your seat reservations</h2>
+    <pre><code class="javascript" data-result="[object Object]">self.removeTask = <span class="function"><span class="keyword">function</span><span class="params">(task)</span> {</span> self.tasks.<span class="highlight">destroy</span>(task) };
+</code></pre>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Passenger name</th>
-                <th>Meal</th>
-                <th>Surcharge</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody data-bind="foreach: seats">
-            <tr>
-                <td><input data-bind="value: name" /></td>
-                <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
-                <td data-bind="text: formattedPrice"></td>
-                <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
-            </tr>
-        </tbody>
-    </table>
+    <p>Apa fungsinya? Yah, itu tidak lagi benar-benar menghapus instansi <code>Task</code> dari <code>tasks</code> array - sebagai gantinya, itu hanya menambahkan properti <code>_destroy</code>
+        ke instance <code>Task</code> dengan nilai. <code>true</code>. Ini sama persis dengan konvensi Ruby on Rails menggunakan <code>_destroy</code> untuk menunjukkan bahwa item yang dikirimkan harus dihapus.
+        <code>foreach</code> binding mengetahui hal ini, dan tidak akan menampilkan item apa pun dengan nilai properti itu (itulah sebabnya item menghilang saat dihancurkan).
+    </p>
 
-    <button data-bind="click: addSeat">Reserve another seat</button>
+    <h3>Bagaimana server menangani ini?</h3>
 
-    <h3 data-bind="visible: totalSurcharge() > 0">
-        Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
-    </h3>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sammy.js/0.7.0/sammy.min.js"></script>
-<script type="text/javascript">
-    // Class to represent a row in the seat reservations grid
-    function SeatReservation(name, initialMeal) {
-        var self = this;
-        self.name = name;
-        self.meal = ko.observable(initialMeal);
+    <p>Jika Anda menyimpan data sekarang, Anda akan melihat bahwa server masih menerima item yang dihancurkan, dan server dapat mengetahui item mana yang ingin Anda hapus
+        (karena mereka memiliki properti <code>_destroy</code> yang disetel ke <code>true</code>).</p>
 
-        self.formattedPrice = ko.computed(function() {
-            var price = self.meal().price;
-            return price ? "$" + price.toFixed(2) : "None";
-        });
-    }
+    <ul>
+        <li>Jika Anda menggunakan fitur parsing JSON otomatis di Rails, ActiveRecord akan mengetahui bahwa Anda ingin menghapus item terkait.</li>
+        <li>Untuk teknologi lain, Anda dapat menambahkan sedikit kode sisi server untuk menemukan <code>_destroy</code> dan menghapus item tersebut.</li>
+    </ul>
 
-    // Overall viewmodel for this screen, along with initial state
-    function ReservationsViewModel() {
-        var self = this;
+    <p>Jika Anda ingin melihat lebih jelas data apa yang diterima server dalam contoh ini, coba ganti tombol "Save" dengan ajax dengan teknik form-HTML dari langkah 3 dalam tutorial ini.
+        .</p>
 
-        // Non-editable catalog data - would come from the server
-        self.availableMeals = [{
-                mealName: "Standard (sandwich)",
-                price: 0
-            },
-            {
-                mealName: "Premium (lobster)",
-                price: 34.95
-            },
-            {
-                mealName: "Ultimate (whole zebra)",
-                price: 290
-            }
-        ];
+    <h3>Hei, penghitung tugas saya tidak lagi berfungsi!</h3>
 
-        // Editable data
-        self.seats = ko.observableArray([
-            new SeatReservation("Steve", self.availableMeals[0]),
-            new SeatReservation("Bert", self.availableMeals[0])
-        ]);
+    <p>Perhatikan bahwa keterangan "<em>You have x incomplete task(s)</em>" tidak lagi memfilter item yang dihapus, arena properti <code>incompleteTasks</code> computed
+        tidak mengetahui apa pun tentang flag <code>_destroy</code> Perbaiki ini dengan memfilter tugas yang dihancurkan:</p>
 
-        // Computed data
-        self.totalSurcharge = ko.computed(function() {
-            var total = 0;
-            for (var i = 0; i < self.seats().length; i++)
-                total += self.seats()[i].meal().price;
-                console.log('asd',self.seats()[i]);
-            return total;
-        });
+    <pre><code class="javascript" data-result="[object Object]">self.incompleteTasks = ko.computed(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> ko.utils.arrayFilter(self.tasks(), <span class="function"><span class="keyword">function</span><span class="params">(task)</span> {</span> <span class="keyword">return</span> !task.isDone() <span class="highlight">&amp;&amp; !task._destroy</span> });
+});
+</code></pre>
 
-        // Operations
-        self.addSeat = function() {
-            self.seats.push(new SeatReservation("", self.availableMeals[0]));
-        }
-        self.removeSeat = function(seat) {
-            self.seats.remove(seat)
-        }
-    }
-
-    ko.applyBindings(new ReservationsViewModel());
-</script>
-
-</html>
+    <p>Sekarang UI akan secara konsisten melihat <code>_destroy</code>ed tasks tidak ada, meskipun mereka masih dilacak secara internal.</p>

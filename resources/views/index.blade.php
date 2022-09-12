@@ -90,10 +90,15 @@
             background-color: white;
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
+    <script type="text/javascript" href="knockout-3.2.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
 
 </head>
@@ -102,19 +107,23 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-faded">
         <ul class="navbar-nav mx-auto">
-            <li class="nav-item active text-center"><a class="dropdown-item active"
-                    href="{{ url('/') }}">Introduction</a></li>
-            <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index2') }}">Working With List and
+            <li class="nav-item text-center"><a class="dropdown-item active" href="{{ url('/') }}">Introduction</a>
+            </li>
+            <li class="nav-item active text-center"><a class="dropdown-item" href="{{ url('index2') }}">Working
+                    With List
+                    and
                     Collection</a></li>
             <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index3') }}">Single page
-                    application</a></li>
+                    application</a>
+            </li>
             <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index4') }}">Create custom
-                    bindings</a></li>
+                    bindings</a>
+            </li>
             <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index5') }}">Loading and saving
-                    data</a></li>
+                    data</a>
+            </li>
         </ul>
     </nav>
-
     <div class="code-editor">
         <div class="code">
             <div class="card" style="overflow-y: auto;">
@@ -140,19 +149,19 @@
                     </nav>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            {!! $knockout[0]->instruction !!}
+                            {!! $knockout[0]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[1]->instruction !!}
+                            {!! $knockout[1]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[2]->instruction !!}
+                            {!! $knockout[2]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[3]->instruction !!}
+                            {!! $knockout[3]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[4]->instruction !!}
+                            {!! $knockout[4]->description !!}
                         </div>
                     </div>
                 </div>
@@ -161,8 +170,8 @@
             </div>
             <div class="result-code">
                 Output
-                <div id="result">
-                </div>
+                <iframe id="result">
+                </iframe>
             </div>
 
         </div>
@@ -170,12 +179,12 @@
         <div class="code">
             <div class="html-code">
                 <h1>HTML</h1>
-                <textarea></textarea>
+                <textarea ></textarea>
             </div>
             <div class="js-code">
                 <h1>JS</h1>
 
-                <textarea spellcheck="false" id="transfer">
+                <textarea spellcheck="false" id="transfer" >
 
                 </textarea>
             </div>
@@ -183,13 +192,18 @@
         </div>
 
     </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"
-    integrity="sha512-qaH3u2SeIg81DnURksW33Tx8XguHZmtjkQxjOFVLj+v7+Fgb+o4D4XDnt0MOv2wi32J+xTGxQu1o5CbyP5KqUw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"
-    integrity="sha512-BkBgWiL0N/EFIbLZYGTgbksKG5bS6PtwnWvVk3gccv+KhtK/4wkLxCRGh+kelKiXx7Ey4jfTabLg3AEIPC7ENA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"
+        integrity="sha512-qaH3u2SeIg81DnURksW33Tx8XguHZmtjkQxjOFVLj+v7+Fgb+o4D4XDnt0MOv2wi32J+xTGxQu1o5CbyP5KqUw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+        integrity="sha512-BkBgWiL0N/EFIbLZYGTgbksKG5bS6PtwnWvVk3gccv+KhtK/4wkLxCRGh+kelKiXx7Ey4jfTabLg3AEIPC7ENA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+
+
+
+
 
 </html>

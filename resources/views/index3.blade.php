@@ -111,11 +111,11 @@
             </li>
             <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index2') }}">Working With List and
                     Collection</a></li>
-            <li class="nav-item active text-center"><a class="dropdown-item active" href="{{ url('index3') }}">Single
-                    page
+            <li class="nav-item active text-center"><a class="dropdown-item active" href="{{ url('index3') }}">Single page
                     application</a>
             </li>
-            <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index4') }}">Create custom
+            <li class="nav-item  text-center"><a class="dropdown-item" href="{{ url('index4') }}">Create
+                    custom
                     bindings</a>
             </li>
             <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index5') }}">Loading and saving
@@ -148,19 +148,19 @@
                     </nav>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            {!! $knockout[10]->instruction !!}
+                            {!! $knockout[10]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[11]->instruction !!}
+                            {!! $knockout[11]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[12]->instruction !!}
+                            {!! $knockout[12]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[13]->instruction !!}
+                            {!! $knockout[13]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[14]->instruction !!}
+                            {!! $knockout[14]->description !!}
                         </div>
                     </div>
                 </div>
@@ -192,7 +192,7 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="script3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"
     integrity="sha512-qaH3u2SeIg81DnURksW33Tx8XguHZmtjkQxjOFVLj+v7+Fgb+o4D4XDnt0MOv2wi32J+xTGxQu1o5CbyP5KqUw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -21,32 +21,32 @@ class knockoutController extends Controller
      */
     public function index()
     {
-        $knockout = DB::select('select * from instruction');
+        $knockout = DB::select('select * from modul_tutorial');
         return view('index', ['knockout' => $knockout]);
     }
     public function index2()
     {
-        $knockout = DB::select('select * from instruction');
+        $knockout = DB::select('select * from modul_tutorial');
         return view('index2', ['knockout' => $knockout]);
     }
     public function index3()
     {
-        $knockout = DB::select('select * from instruction');
+        $knockout = DB::select('select * from modul_tutorial');
         return view('index3', ['knockout' => $knockout]);
     }
     public function index4()
     {
-        $knockout = DB::select('select * from instruction');
+        $knockout = DB::select('select * from modul_tutorial');
         return view('index4', ['knockout' => $knockout]);
     }
     public function index5()
     {
-        $knockout = DB::select('select * from instruction');
+        $knockout = DB::select('select * from modul_tutorial');
         return view('index5', ['knockout' => $knockout]);
     }
     public function test()
     {
-        $knockout = DB::select('select * from instruction');
+        $knockout = DB::select('select * from modul_tutorial');
         return view('test');
     }
 

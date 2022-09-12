@@ -18,7 +18,7 @@
 '</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sammy.js/0.7.0/sammy.min.js"></script>
+
 <script type="text/javascript"> '."$js".'</script>
 
  </html>'

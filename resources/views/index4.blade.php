@@ -114,11 +114,11 @@
             <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index3') }}">Single page
                     application</a>
             </li>
-            <li class="nav-item active text-center"><a class="dropdown-item active" href="{{ url('index4') }}">Create
-                    custom
+            <li class="nav-item active text-center"><a class="dropdown-item active" href="{{ url('index4') }}">Create custom
                     bindings</a>
             </li>
-            <li class="nav-item text-center"><a class="dropdown-item" href="{{ url('index5') }}">Loading and saving
+            <li class="nav-item  text-center"><a class="dropdown-item " href="{{ url('index5') }}">Loading
+                    and saving
                     data</a>
             </li>
         </ul>
@@ -148,19 +148,16 @@
                     </nav>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            {!! $knockout[0]->instruction !!}
+                            {!! $knockout[15]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[1]->instruction !!}
+                            {!! $knockout[16]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[2]->instruction !!}
+                            {!! $knockout[17]->description !!}
                         </div>
                         <div class="carousel-item">
-                            {!! $knockout[3]->instruction !!}
-                        </div>
-                        <div class="carousel-item">
-                            {!! $knockout[4]->instruction !!}
+                            {!! $knockout[18]->description !!}
                         </div>
                     </div>
                 </div>
@@ -169,10 +166,9 @@
             </div>
             <div class="result-code">
                 Output
-                <div id="result">
-                </div>
+                <iframe id="result">
+                </iframe>
             </div>
-
         </div>
 
         <div class="code">
@@ -192,13 +188,13 @@
 
     </div>
 
-    <script src="script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"
-    integrity="sha512-qaH3u2SeIg81DnURksW33Tx8XguHZmtjkQxjOFVLj+v7+Fgb+o4D4XDnt0MOv2wi32J+xTGxQu1o5CbyP5KqUw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"
-    integrity="sha512-BkBgWiL0N/EFIbLZYGTgbksKG5bS6PtwnWvVk3gccv+KhtK/4wkLxCRGh+kelKiXx7Ey4jfTabLg3AEIPC7ENA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"
+        integrity="sha512-qaH3u2SeIg81DnURksW33Tx8XguHZmtjkQxjOFVLj+v7+Fgb+o4D4XDnt0MOv2wi32J+xTGxQu1o5CbyP5KqUw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+        integrity="sha512-BkBgWiL0N/EFIbLZYGTgbksKG5bS6PtwnWvVk3gccv+KhtK/4wkLxCRGh+kelKiXx7Ey4jfTabLg3AEIPC7ENA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>

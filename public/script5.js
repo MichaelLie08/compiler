@@ -12,7 +12,7 @@ function run( ) {
     localStorage.setItem('html_code', html_code.value);
     localStorage.setItem('js_code',  js_code.value  );
     const data={html:html_code.value,js:js_code.value}
-    $.ajax({ type:"POST", url: "index/vKnock.php",data:data, success: function(result){
+    $.ajax({ type:"POST", url: "indexes4/vKnock.php",data:data, success: function(result){
 
         $("#result").html(result);
         console.log(result);
