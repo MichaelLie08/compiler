@@ -33,5 +33,11 @@ js_code.onkeyup = () => run();
 
 
 // Accessing data stored in Local Storage. To make it more advanced you could check if there is any data stored in Local Storage.
-html_code.value = "";
-js_code.value = "";
+html_code.value = `<!-- Todo: Create UI -->`;
+js_code.value = `function WebmailViewModel() {
+    // Data
+    var self = this;
+    self.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+};
+
+ko.applyBindings(new WebmailViewModel());`;

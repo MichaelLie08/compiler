@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [knockoutController::class, 'index']);
+
+Route::get('/', [knockoutController::class, '__construct']);
+
+Route::get('index1/', [knockoutController::class, 'index']);
 Route::get('index2/', [knockoutController::class, 'index2']);
 Route::get('index3/', [knockoutController::class, 'index3']);
 Route::get('index4/', [knockoutController::class, 'index4']);
 Route::get('index5/', [knockoutController::class, 'index5']);
+
+Route::post('post/{id}',[knockoutController::class,'next']);
 
 
 
