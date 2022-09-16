@@ -17,19 +17,19 @@ class knockoutController extends Controller
         $knockout = DB::select('select * from member_course');
         if ($knockout[0]->progress == 1) {
             $module = DB::select('select * from modul_tutorial');
-            return view('index', ['module' => $module, 'knockout' => $knockout]);
+            return view('knockout-materi1', ['module' => $module, 'knockout' => $knockout]);
         } else if ($knockout[0]->progress == 2) {
             $module = DB::select('select * from modul_tutorial');
-            return view('index2', ['module' => $module, 'knockout' => $knockout]);
+            return view('knockout-materi2', ['module' => $module, 'knockout' => $knockout]);
         } else if ($knockout[0]->progress == 3) {
             $module = DB::select('select * from modul_tutorial');
-            return view('index3', ['module' => $module, 'knockout' => $knockout]);
+            return view('knockout-materi3', ['module' => $module, 'knockout' => $knockout]);
         } else if ($knockout[0]->progress == 4) {
             $module = DB::select('select * from modul_tutorial');
-            return view('index4', ['module' => $module, 'knockout' => $knockout]);
+            return view('knockout-materi4', ['module' => $module, 'knockout' => $knockout]);
         } else if ($knockout[0]->progress == 5) {
             $module = DB::select('select * from modul_tutorial');
-            return view('index5', ['module' => $module, 'knockout' => $knockout]);
+            return view('knockout-materi5', ['module' => $module, 'knockout' => $knockout]);
         }
     }
     /**
@@ -40,28 +40,28 @@ class knockoutController extends Controller
     public function index()
     {
         $module = DB::select('select * from modul_tutorial');
-        return view('index', ['module' => $module]);
+        return view('knockout-materi1', ['module' => $module]);
     }
 
     public function index2()
     {
         $module = DB::select('select * from modul_tutorial');
-        return view('index2', ['module' => $module]);
+        return view('knockout-materi2', ['module' => $module]);
     }
     public function index3()
     {
         $module = DB::select('select * from modul_tutorial');
-        return view('index3', ['module' => $module]);
+        return view('knockout-materi3', ['module' => $module]);
     }
     public function index4()
     {
         $module = DB::select('select * from modul_tutorial');
-        return view('index4', ['module' => $module]);
+        return view('knockout-materi4', ['module' => $module]);
     }
     public function index5()
     {
         $module = DB::select('select * from modul_tutorial');
-        return view('index5', ['module' => $module]);
+        return view('knockout-materi5', ['module' => $module]);
     }
 
     public function next($id){
