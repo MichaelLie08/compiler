@@ -21,11 +21,11 @@
 
     <div class="ui inverted segment">
         <div class="ui inverted secondary pointing menu">
-            <a class="active item" href="{{ url('php1') }}">Operator dan Variabel</a>
-            <a class="item" href="{{ url('php2') }}">Conditional IF</a>
-            <a class="item" href="{{ url('php3') }}">Looping</a>
-            <a class="item" href="{{ url('php4') }}">Function</a>
-            <a class="item" href="{{ url('php5') }}">Array</a>
+            <?php $i=0; foreach ( $id_module as $id) : ?>
+            <a class="item" href="{{ url('php1/'.$id->id_course_module_parent) }}">
+                <?php echo $id->name;?>
+            </a>
+            <?php $i++; endforeach ?>
         </div>
     </div>
     <div class="control-panel" style="padding-left:15px;">
@@ -48,9 +48,11 @@
             <div class="column">
                 <div class="ui segment" style="height: 500px; width: 100%; overflow-y: auto;">
                     <div class="carousel-inner">
+                        <?php foreach ( $module as $modules) : ?>
                         <div class="carousel-item active">
-                            {!! $module[24]->description !!}
+                            {!! $modules->description !!}
                         </div>
+                        <?php endforeach ?>
                     </div>
                 </div>
                 <div class="ui segment" style="height: 350px; width: 100%;">
@@ -76,9 +78,9 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="phpcompiler/js/lib/ace.js"></script>
-    <script src="phpcompiler/js/lib/theme-monokai.js"></script>
-    <script src="phpcompiler/js/ide.js"></script>
+    <script src="{{ asset('phpcompiler/js/lib/ace.js') }}"></script>
+    <script src="{{ asset('phpcompiler/js/lib/theme-monokai.js') }}"></script>
+    <script src="{{ asset('phpcompiler/js/ide.js') }}"></script>
 </body>
 
 </html>

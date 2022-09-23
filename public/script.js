@@ -3,6 +3,7 @@ js_code = document.querySelector(".js-code textarea");
 result = document.querySelector("#result");
 
 function run() {
+    console.log("asd");
     // Storing data in Local Storage
     localStorage.setItem("html_code", html_code.value);
     localStorage.setItem("js_code", js_code.value);
@@ -24,24 +25,6 @@ function run() {
 html_code.onkeyup = () => run();
 js_code.onkeyup = () => run();
 
-// function codeViewModel() {
-//     console.log("asd");
-//     this.code =
-//         ko.observable(`<!-- This is a *view* - HTML markup that defines the appearance of your UI -->
-//             <p>First name: <strong>todo</strong></p>
-//             <p>Last name: <strong>todo</strong></p>`);
-
-//     this.script =
-//         ko.observable(`// This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
-//             function AppViewModel() {
-//             this.firstName = "Bert";
-//             this.lastName = "Bertington";
-//             }
-//             // Activates knockout.js
-//             ko.applyBindings(new AppViewModel());`);
-
-//     ko.applyBindings(new codeViewModel());
-// }
 
 // Accessing data stored in Local Storage. To make it more advanced you could check if there is any data stored in Local Storage.
 html_code.value = `<!-- This is a *view* - HTML markup that defines the appearance of your UI -->
