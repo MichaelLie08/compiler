@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\knockoutController;
 use App\Http\Controllers\phpController;
+use App\Http\Controllers\pythonController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,12 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [knockoutController::class, '__construct']);
+Route::get('/', [pythonController::class, '__construct']);
 
 Route::get('knockout-materi1/{id}', [knockoutController::class, 'index']);
 
 Route::post('post/{id}',[knockoutController::class,'next']);
 
 Route::get('php1/{id}',[phpController::class,'php']);
+Route::get('python1/{id}', [pythonController::class, 'python']);
 
 ?>

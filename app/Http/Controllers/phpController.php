@@ -67,26 +67,26 @@ class phpController extends Controller
 
     }
 
-    // public function php2()
-    // {
-    //     $module = DB::select('select * from modul_tutorial');
-    //     return view('phpcompiler.ide2', ['module' => $module]);
-    // }
-    // public function php3()
-    // {
-    //     $module = DB::select('select * from modul_tutorial');
-    //     return view('phpcompiler.ide3', ['module' => $module]);
-    // }
-    // public function php4()
-    // {
-    //     $module = DB::select('select * from modul_tutorial');
-    //     return view('phpcompiler.ide4', ['module' => $module]);
-    // }
-    // public function php5()
-    // {
-    //     $module = DB::select('select * from modul_tutorial');
-    //     return view('phpcompiler.ide5', ['module' => $module]);
-    // }
+    public function php2()
+    {
+        $module = DB::select('select * from modul_tutorial');
+        return view('phpcompiler.ide2', ['module' => $module]);
+    }
+    public function php3()
+    {
+        $module = DB::select('select * from modul_tutorial');
+        return view('phpcompiler.ide3', ['module' => $module]);
+    }
+    public function php4()
+    {
+        $module = DB::select('select * from modul_tutorial');
+        return view('phpcompiler.ide4', ['module' => $module]);
+    }
+    public function php5()
+    {
+        $module = DB::select('select * from modul_tutorial');
+        return view('phpcompiler.ide5', ['module' => $module]);
+    }
 
     public function next($id)
     {

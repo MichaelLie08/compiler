@@ -33,6 +33,7 @@
         &nbsp; &nbsp;
         <select id="languages" class="languages" onchange="changeLanguage()">
             <option value="php"> PHP </option>
+            <option value="python"> pyton </option>
         </select>
     </div>
     {{-- <div class="editor" id="editor" style="height: 500px"></div>
@@ -81,6 +82,7 @@
     <script src="{{ asset('phpcompiler/js/lib/ace.js') }}"></script>
     <script src="{{ asset('phpcompiler/js/lib/theme-monokai.js') }}"></script>
     <script src="{{ asset('phpcompiler/js/ide.js') }}"></script>
+
 </body>
 
 </html>

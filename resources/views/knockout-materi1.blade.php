@@ -135,7 +135,16 @@
             }
         });
         $("#selesai").on('click', function() {
-            console.log("asd");
+            $.ajax({
+                type: "POST",
+                url: '{{ asset("index/vKnock.php")}}',
+                data: data,
+                success: function (result) {
+                $("#result").html(result);
+                console.log(result);
+                $("#result").attr("srcdoc", result);
+                },
+            });
         });
         // Checking if user is typing anything in input field
 

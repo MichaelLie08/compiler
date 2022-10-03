@@ -15,7 +15,7 @@ class knockoutController extends Controller
     public function __construct()
     {
 
-        $module = DB::select('select description from course_module where id_course_module_parent = 1');
+        $module = DB::select('select description from course_module where id_course_module_parent = 34');
         $id_module = DB::select('select DISTINCT id_course_module_parent,name from course_module where id_course = 2 and id_course_module_parent IS NOT NULL;');
 
         $html_code = "<!-- This is a *view* - HTML markup that defines the appearance of your UI -->

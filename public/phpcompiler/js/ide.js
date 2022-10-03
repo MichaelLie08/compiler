@@ -6,12 +6,6 @@ window.onload = function() {
     editor.session.setMode("ace/mode/php");
 }
 
-function changeLanguage() {
-
-    let language = $("#languages").val();
-    if(language == 'php')editor.session.setMode("ace/mode/php");
-}
-
 function executeCode() {
 
     $.ajax({
@@ -21,7 +15,7 @@ function executeCode() {
 
 
         data: {
-            language: $("#languages").val(),
+            language: 'php',
             code: editor.getSession().getValue(),
         },
 
@@ -29,4 +23,5 @@ function executeCode() {
             $(".output").text(response);
         },
     });
+
 }
